@@ -8,7 +8,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      dummy: dummyData
+      data: dummyData
     };
   }
 
@@ -16,9 +16,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <SearchBar />
-        <PostContainer
-          dummy={this.state.dummy}
-        />
+        {this.state.data.map(post => <PostContainer eachPost={post}/>)}
       </div>
     );
   }

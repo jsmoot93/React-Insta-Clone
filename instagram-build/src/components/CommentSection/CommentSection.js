@@ -1,21 +1,29 @@
 import React from "react";
-import "./Comment.css"
+import "./Comment.css";
+import PropTypes from 'prop-types';
 
 function CommentSection(props) {
     console.log(props);
     return (
         <div className="comment-container">
             <div className="comments">
-                {props.dummy.comments &&
-                    props.dummy.comments.map(e => (
-                        <div>
-                            <h2>{e.username}</h2>
+                {props.eachPost.comments &&
+                    props.eachPost.comments.map(e => (
+                        <div className="user-comment">
+                            <h3>{e.username}</h3>
                             <p>{e.text}</p>
                         </div>
                 ))}
             </div>
         </div>
     );
+};
+
+CommentSection.propTypes = {
+    comments: PropTypes.shape({
+      text: PropTypes.string,
+      username: PropTypes.string
+    })
 };
 
 export default CommentSection;

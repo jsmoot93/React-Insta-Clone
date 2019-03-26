@@ -1,0 +1,20 @@
+.comments {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.user-comment {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    margin: 5px
+}
+
+.user-comment h3 {
+    margin: 0;
+}
+
+.user-comment p {
+    margin: 0 5px;
+}
