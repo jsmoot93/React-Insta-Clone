@@ -3,7 +3,6 @@ import "./Comment.css";
 import PropTypes from 'prop-types';
 
 function CommentSection(props) {
-    console.log(props);
     return (
         <div className="comment-container">
             <div className="comments">

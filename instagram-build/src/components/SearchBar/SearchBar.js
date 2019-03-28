@@ -1,14 +1,14 @@
 import React from "react";
 import "./Search.css";
 
-const SearchBar = (event) => {
+const SearchBar = props => {
     return (
         <div className="search">
             <div className="left">
                 <i className="fab fa-instagram"></i>
                 <div className="brand">Instagram</div>
             </div>
-            <input className="searchbar" placeholder="Search" />
+            <input className="searchbar" placeholder="Search" onKeyDown={props.searchPosts}/>
             <div className="right-side">
                 <i className="far fa-compass"></i>
                 <i className="far fa-heart"></i>
