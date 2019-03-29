@@ -9,7 +9,8 @@ class App extends React.Component {
     super();
     this.state = {
       data: [],
-      filteredData: []
+      filteredData: [],
+      input: ""
     };
   }
 
@@ -20,12 +21,17 @@ class App extends React.Component {
   }
 
   searchDataHandler = e => {
-    const data = this.state.data.filter(p => {
-      if (p.username.includes(e.target.value)) {
-        return p;
+    if (e.target.value !== ""){
+    const data = this.state.data.filter(post => {
+      if (post.username.includes(e.target.value)) {
+        return post;
       }
     });
-    this.setState({ filteredData: data });
+    this.setState({filteredData: data, input: e.target.value});
+  } else {
+    this.setState({input: ""})
+  }
+
   };
 
   render() {
@@ -34,13 +40,7 @@ class App extends React.Component {
         <SearchBar
           searchPosts={this.searchDataHandler}
         />
-        {this.state.data.map(post => <PostContainer 
-          eachPost={
-            this.state.filteredData.length > 0
-              ? this.state.filteredData
-              : this.state.data
-          }
-        />)}
+        {this.state.input === "" ? this.state.data.map(post => <PostContainer eachPost={post}/>): this.state.filteredData.map(post => <PostContainer eachPost={post}/>)}
       </div>
     );
   }

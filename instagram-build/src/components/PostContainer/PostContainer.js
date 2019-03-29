@@ -26,10 +26,10 @@ class PostContainer extends React.Component {
                         </div>
                         <img className="postpic" src={this.props.eachPost.imageUrl} />
                         <div className="mid-icons">
-                            <i className="far fa-heart" onClick={this.props.incrementLike}></i>
+                            <i className="far fa-heart" onClick={this.incrementLike}></i>
                             <i className="far fa-comment"></i>
                         </div>
-                        <h3 className="likes">{this.props.eachPost.likes} likes</h3>
+                        <h3 className="likes">{this.state.likes} likes</h3>
                         <CommentSection 
                         eachPost= {this.props.eachPost}
                         />
